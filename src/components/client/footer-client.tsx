@@ -14,7 +14,7 @@ import { Input } from '@/components/ui/input'
 const FooterClient = () => {
   return (
     <footer className="bg-gradient-to-br from-[#1E2A5A] to-[#142042] py-16 text-[#F9E6B3]">
-    <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4">
         <div className="mb-10 flex flex-col items-center text-center">
           <Link href="/">
             <Image
