@@ -29,12 +29,12 @@ const HeaderClient = () => {
   const menuItems = [
     { name: 'TRANG CHỦ', href: '/' },
     { name: 'VỊ TRÍ', href: '/vi-tri' },
-    { name: 'TIỆN ÍCH', href: '/tiện-ích' },
+    { name: 'TIỆN ÍCH', href: '/tien-ich' },
     { name: 'MẶT BẰNG', href: '/mat-bang' },
     { name: 'CHÍNH SÁCH', href: '/chinh-sach' },
     { name: 'BẢNG GIÁ', href: '/bang-gia' },
-    { name: 'TIN TỨC', href: '/tin-tức' },
-    { name: 'LIÊN HỆ', href: '/liên-hệ' },
+    { name: 'TIN TỨC', href: '/tin-tuc' },
+    { name: 'LIÊN HỆ', href: '/lien-he' },
   ]
 
   return (

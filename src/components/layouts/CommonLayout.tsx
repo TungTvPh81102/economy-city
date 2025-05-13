@@ -39,19 +39,19 @@ const CommonLayout = ({ children }: LayoutProps) => {
       <div className="fixed bottom-6 right-6 z-50 flex flex-col gap-3">
         <Link
           href="tel:0901234567"
-          className="flex size-12 items-center justify-center rounded-full bg-white/10 text-white shadow-lg transition-colors hover:brightness-110"
+          className="flex size-12 items-center justify-center rounded-full bg-primary text-[#F9E6B3] shadow-lg transition-colors hover:brightness-110"
         >
           <Phone className="size-5" />
         </Link>
         <Link
           href="#"
-          className="flex size-12 items-center justify-center rounded-full bg-white/10 text-white shadow-lg transition-colors hover:brightness-110"
+          className="flex size-12 items-center justify-center rounded-full bg-primary text-[#F9E6B3] shadow-lg transition-colors hover:brightness-110"
         >
           <Mail className="size-5" />
         </Link>
         <Link
           href="#"
-          className="flex size-12 items-center justify-center rounded-full bg-white/10 text-white shadow-lg transition-colors hover:brightness-110"
+          className="flex size-12 items-center justify-center rounded-full bg-primary text-[#F9E6B3] shadow-lg transition-colors hover:brightness-110"
         >
           <MessageCircle className="size-5" />
         </Link>
@@ -60,7 +60,7 @@ const CommonLayout = ({ children }: LayoutProps) => {
       {showBackToTop && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-6 left-6 z-50 flex size-12 items-center justify-center rounded-full bg-white/10 text-white shadow-lg transition-colors hover:brightness-110"
+          className="fixed bottom-6 left-6 z-50 flex size-12 items-center justify-center rounded-full bg-primary text-[#F9E6B3] shadow-lg transition-colors hover:brightness-110"
         >
           <ArrowUp className="size-5" />
         </button>
