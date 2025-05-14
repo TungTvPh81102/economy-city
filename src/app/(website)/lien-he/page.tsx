@@ -24,6 +24,10 @@ import {
 import { Textarea } from '@/components/ui/textarea'
 import { Button } from '@/components/ui/button'
 import Image from 'next/image'
+import { contactMetadata } from '@/lib/metadata'
+import { Dialog, DialogTrigger, DialogContent } from '@/components/ui/dialog'
+
+export const metadata = contactMetadata
 
 const Page = () => {
   return (
@@ -46,6 +50,7 @@ const Page = () => {
           </p>
         </div>
       </section>
+
       <section className="bg-gray-50 py-16 md:py-10">
         <div className="container mx-auto px-4">
           <div className="mb-12 flex flex-col items-center">
@@ -267,7 +272,6 @@ const Page = () => {
             <h2 className="font-playfair mb-4 text-3xl font-bold text-[#1a2c64] md:text-4xl">
               Bản đồ <span className="text-[#1a2c64]">vị trí</span>
             </h2>
-            <div className="mx-auto mb-4 h-1 w-20 bg-[#f0d989]"></div>
             <p className="text-gray-600">
               Xem chi tiết vị trí dự án Economy City trên bản đồ
             </p>
@@ -293,7 +297,6 @@ const Page = () => {
             <h2 className="font-playfair mb-4 text-3xl font-bold text-[#1a2c64] md:text-4xl">
               Nhà mẫu <span className="text-[#1a2c64]">Economy City</span>
             </h2>
-            <div className="mx-auto mb-4 h-1 w-20 bg-[#f0d989]"></div>
             <p className="text-gray-600">
               Tham quan nhà mẫu để trải nghiệm không gian sống đẳng cấp tại
               Economy City
@@ -301,14 +304,27 @@ const Page = () => {
           </div>
 
           <div className="grid grid-cols-1 items-center gap-8 md:grid-cols-2">
-            <div className="group relative h-[300px] overflow-hidden rounded-xl border-4 border-[#f0d989]/20 shadow-lg transition-all duration-300 hover:border-[#f0d989]/40 md:h-[400px]">
-              <Image
-                src="/images/showroom.jpg"
-                alt="Nhà mẫu Economy City"
-                fill
-                className="object-cover transition-transform duration-500 group-hover:scale-105"
-              />
-            </div>
+            <Dialog>
+              <DialogTrigger asChild>
+                <div className="group relative h-[300px] cursor-pointer overflow-hidden rounded-xl shadow-lg transition-all duration-300 hover:border-[#f0d989]/40 md:h-[400px]">
+                  <Image
+                    src="/images/common/showroom.jpg"
+                    alt="Nhà mẫu Economy City"
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                </div>
+              </DialogTrigger>
+              <DialogContent className="max-w-5xl border-none bg-transparent p-0 shadow-none">
+                <Image
+                  src="/images/common/showroom.jpg"
+                  alt="Preview Nhà mẫu Economy City"
+                  width={1200}
+                  height={800}
+                  className="h-auto w-full rounded-lg object-contain"
+                />
+              </DialogContent>
+            </Dialog>
 
             <div className="p-4">
               <h3 className="mb-4 text-2xl font-semibold text-[#1a2c64]">
@@ -324,14 +340,14 @@ const Page = () => {
               <div className="mb-8 space-y-6">
                 <div className="flex items-start">
                   <div className="mr-3 flex size-10 items-center justify-center rounded-full bg-[#1a2c64]/10">
-                    <MapPin className="h-5 w-5 text-[#1a2c64]" />
+                    <MapPin className="size-5 text-[#1a2c64]" />
                   </div>
                   <div>
                     <h4 className="font-semibold text-[#1a2c64]">
                       Địa chỉ nhà mẫu
                     </h4>
                     <p className="text-gray-600">
-                      123 Đường Nguyễn Văn Linh, Quận 7, TP. Hồ Chí Minh
+                      Thị trấn Như Quỳnh, huyện Văn Lâm, tỉnh Hưng Yên
                     </p>
                   </div>
                 </div>

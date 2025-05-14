@@ -17,6 +17,12 @@ export const metadata: Metadata = {
     'đầu tư bất động sản',
     'ECONOMY CITY',
     'chung cư ECONOMY CITY',
+    'bất động sản',
+    'khu đô thị',
+    'biệt thự',
+    'nhà phố',
+    'shophouse',
+    'TP. Hà Nội',
   ],
   openGraph: {
     title: 'ECONOMY CITY - Căn hộ cao cấp xanh giữa lòng thành phố',

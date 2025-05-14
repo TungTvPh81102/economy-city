@@ -3,6 +3,9 @@ import Image from 'next/image'
 import { Check, Heart, Leaf, Zap } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
+import { amenitiesMetadata } from '@/lib/metadata'
+
+export const metadata = amenitiesMetadata
 
 const Page = () => {
   return (
@@ -32,7 +35,7 @@ const Page = () => {
               Tiện ích
             </Badge>
             <h2 className="text-center text-3xl font-bold md:text-4xl">
-              Tiện ích tại<span className="text-primary">ECONOMY CITY</span>
+              Tiện ích tại <span className="text-primary">ECONOMY CITY</span>
             </h2>
             <p className="mt-6 max-w-2xl text-center text-gray-700">
               Hãy liên hệ với chúng tôi để được tư vấn chi tiết về dự án Economy
