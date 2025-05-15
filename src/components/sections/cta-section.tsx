@@ -55,7 +55,6 @@ const CtaSection = () => {
       }
     } catch (error) {
       console.error('Error:', error)
-      alert('Đã có lỗi xảy ra.')
       toast({
         title: 'Đã có lỗi xảy ra',
         description:
@@ -69,7 +68,10 @@ const CtaSection = () => {
   }
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-[#1E2A5A] to-[#2E3B6A] text-white md:py-10">
+    <section
+      id="dang-ky"
+      className="relative overflow-hidden bg-gradient-to-br from-[#1E2A5A] to-[#2E3B6A] text-white md:py-10"
+    >
       <LoadingModal isOpen={loading} />
       <div className="absolute left-0 top-0 size-full overflow-hidden opacity-20">
         <div className="absolute left-10 top-10 size-40 rounded-full bg-white/10"></div>

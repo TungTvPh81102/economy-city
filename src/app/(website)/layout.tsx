@@ -5,7 +5,7 @@ import { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'ECONOMY CITY - Căn hộ cao cấp xanh giữa lòng thành phố',
   description:
-    'ECONOMY CITY - Dự án chung cư cao cấp hiện đại, tích hợp không gian sống xanh, tiện ích đẳng cấp và vị trí trung tâm. Lựa chọn hoàn hảo cho cuộc sống bền vững và thịnh vượng.',
+    'ECONOMY CITY - Chung cư cao cấp hiện đại với không gian xanh, tiện ích đẳng cấp và vị trí trung tâm, lý tưởng cho cuộc sống bền vững.',
   keywords: [
     'căn hộ cao cấp',
     'dự án chung cư cao cấp',
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'ECONOMY CITY - Căn hộ cao cấp xanh giữa lòng thành phố',
     description:
-      'Khám phá ECONOMY CITY - Dự án căn hộ cao cấp với thiết kế hiện đại, không gian sống xanh, đầy đủ tiện ích và kết nối thuận tiện. Sống đẳng cấp, sống FIBONAN.',
+      'Khám phá ECONOMY CITY - Dự án căn hộ cao cấp với thiết kế hiện đại, không gian sống xanh và tiện ích đẳng cấp.',
     images: [
       {
         url: '/images/logo.svg',
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Dự án Economy City Hưng Yên - Hoàng Vương Group',
     description:
-      'Vị trí dự án ôm lấy nhà văn hóa huyện Văn Lâm. Economy City được chủ đầu tư Hoàng Vương Group hướng đến là khu kinh tế sầm uất, ví như Đất Vàng Lõi Đô Thị.',
+      'Vị trí dự án gần nhà văn hóa huyện Văn Lâm, Economy City là khu kinh tế sầm uất, được ví như Đất Vàng Lõi Đô Thị.',
     images: ['/images/logo.svg'],
   },
 }
