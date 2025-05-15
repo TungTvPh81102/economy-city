@@ -17,6 +17,8 @@ import {
   FormMessage,
 } from '@/components/ui/form'
 import axios from 'axios'
+import { toast } from '@/hooks/use-toast'
+import LoadingModal from '@/components/share/loading-modal'
 
 const CtaSection = () => {
   const [loading, setLoading] = useState(false)
@@ -27,7 +29,6 @@ const CtaSection = () => {
       name: '',
       email: '',
       phone: '',
-      apartment: '',
       message: '',
     },
   })
@@ -35,23 +36,33 @@ const CtaSection = () => {
   const onSubmit = async (data: CtaPayload) => {
     setLoading(true)
     try {
-      const res = await axios.post(
-        'https://script.google.com/macros/s/AKfycbw-W9rElyQv0ksV2yxvazvg3dMAC_X15H2GLu956rAtrESBrRDnPuDUB649RP-04ND9/exec',
-        data,
-        {
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        }
-      )
+      const res = await axios.post('/api/submit', data, {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      })
 
-      console.log(res)
+      if (res?.status === 200) {
+        toast({
+          title: 'Gửi thành công!',
+          description:
+            'Cảm ơn bạn đã liên hệ với chúng tôi. Chúng tôi sẽ phản hồi sớm nhất có thể.',
+          variant: 'default',
+          duration: 3000,
+        })
 
-      alert('Gửi thành công!')
-      form.reset()
+        form.reset()
+      }
     } catch (error) {
       console.error('Error:', error)
       alert('Đã có lỗi xảy ra.')
+      toast({
+        title: 'Đã có lỗi xảy ra',
+        description:
+          'Vui lòng thử lại sau hoặc liên hệ trực tiếp với chúng tôi.',
+        variant: 'destructive',
+        duration: 3000,
+      })
     } finally {
       setLoading(false)
     }
@@ -59,6 +70,7 @@ const CtaSection = () => {
 
   return (
     <section className="relative overflow-hidden bg-gradient-to-br from-[#1E2A5A] to-[#2E3B6A] text-white md:py-10">
+      <LoadingModal isOpen={loading} />
       <div className="absolute left-0 top-0 size-full overflow-hidden opacity-20">
         <div className="absolute left-10 top-10 size-40 rounded-full bg-white/10"></div>
         <div className="absolute bottom-10 right-10 size-60 rounded-full bg-white/10"></div>
