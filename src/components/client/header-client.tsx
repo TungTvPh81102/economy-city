@@ -9,8 +9,10 @@ import { ScrollArea } from '@/components/ui/scroll-area'
 import { cn } from '@/lib/utils'
 import { Phone, Mail, Menu } from 'lucide-react'
 import Image from 'next/image'
+import { useRouter } from 'next/navigation'
 
 const HeaderClient = () => {
+  const router = useRouter()
   const [scrolled, setScrolled] = useState(false)
 
   useEffect(() => {
@@ -142,7 +144,10 @@ const HeaderClient = () => {
             </Sheet>
           </div>
 
-          <Button className="hidden bg-gradient-to-r from-[#1E2A5A] to-[#2E3B6A] text-[#F9E6B3] shadow-md hover:brightness-110 md:flex">
+          <Button
+            onClick={() => router.push('/lien-he')}
+            className="hidden bg-gradient-to-r from-[#1E2A5A] to-[#2E3B6A] text-[#F9E6B3] shadow-md hover:brightness-110 md:flex"
+          >
             Liên hệ ngay
           </Button>
         </div>

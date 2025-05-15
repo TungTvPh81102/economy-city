@@ -1,4 +1,6 @@
-import React from 'react'
+'use client'
+
+import React, { useState } from 'react'
 import { Badge } from '@/components/ui/badge'
 import { CardContent, CardHeader } from '@/components/ui/card'
 import {
@@ -11,27 +13,86 @@ import {
   Clock,
   Youtube,
   MapPin,
+  Send,
 } from 'lucide-react'
 import Link from 'next/link'
 import { Input } from '@/components/ui/input'
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from '@/components/ui/select'
 import { Textarea } from '@/components/ui/textarea'
 import { Button } from '@/components/ui/button'
 import Image from 'next/image'
-import { contactMetadata } from '@/lib/metadata'
-import { Dialog, DialogTrigger, DialogContent } from '@/components/ui/dialog'
-
-export const metadata = contactMetadata
+import {
+  Dialog,
+  DialogTrigger,
+  DialogContent,
+  DialogTitle,
+  DialogDescription,
+} from '@/components/ui/dialog'
+import { VisuallyHidden } from '@radix-ui/react-visually-hidden'
+import { useForm } from 'react-hook-form'
+import { CtaPayload, ctaSchema } from '@/validations/cta'
+import { zodResolver } from '@hookform/resolvers/zod'
+import axios from 'axios'
+import { toast } from '@/hooks/use-toast'
+import LoadingModal from '@/components/share/loading-modal'
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from '@/components/ui/form'
 
 const Page = () => {
+  const [loading, setLoading] = useState(false)
+
+  const form = useForm<CtaPayload>({
+    resolver: zodResolver(ctaSchema),
+    defaultValues: {
+      name: '',
+      email: '',
+      phone: '',
+      message: '',
+    },
+  })
+
+  const onSubmit = async (data: CtaPayload) => {
+    setLoading(true)
+    try {
+      const res = await axios.post('/api/submit', data, {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      })
+
+      if (res?.status === 200) {
+        toast({
+          title: 'Gửi thành công!',
+          description:
+            'Cảm ơn bạn đã liên hệ với chúng tôi. Chúng tôi sẽ phản hồi sớm nhất có thể.',
+          variant: 'default',
+          duration: 3000,
+        })
+
+        form.reset()
+      }
+    } catch (error) {
+      console.error('Error:', error)
+      toast({
+        title: 'Đã có lỗi xảy ra',
+        description:
+          'Vui lòng thử lại sau hoặc liên hệ trực tiếp với chúng tôi.',
+        variant: 'destructive',
+        duration: 3000,
+      })
+    } finally {
+      setLoading(false)
+    }
+  }
+
   return (
     <>
+      <LoadingModal isOpen={loading} />
       <section className="relative h-[450px] md:h-[550px]">
         <Image
           src="/images/contact-hero.jpg"
@@ -166,99 +227,87 @@ const Page = () => {
                   </h3>
                 </CardHeader>
                 <CardContent className="bg-white p-6">
-                  <form className="space-y-5">
-                    <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
-                      <div>
-                        <label
-                          htmlFor="fullname"
-                          className="mb-1 block text-sm font-medium"
-                        >
-                          Họ và tên
-                        </label>
-                        <Input
-                          id="fullname"
-                          type="text"
-                          placeholder="Nhập họ và tên"
-                          className="border-gray-300 focus:border-[#1a2c64] focus:ring-[#1a2c64]"
-                        />
-                      </div>
-                      <div>
-                        <label
-                          htmlFor="email"
-                          className="mb-1 block text-sm font-medium"
-                        >
-                          Email
-                        </label>
-                        <Input
-                          id="email"
-                          type="email"
-                          placeholder="Nhập email"
-                          className="border-gray-300 focus:border-[#1a2c64] focus:ring-[#1a2c64]"
-                        />
-                      </div>
-                      <div>
-                        <label
-                          htmlFor="phone"
-                          className="mb-1 block text-sm font-medium"
-                        >
-                          Số điện thoại
-                        </label>
-                        <Input
-                          id="phone"
-                          type="tel"
-                          placeholder="Nhập số điện thoại"
-                          className="border-gray-300 focus:border-[#1a2c64] focus:ring-[#1a2c64]"
-                        />
-                      </div>
-                      <div>
-                        <label
-                          htmlFor="needs"
-                          className="mb-1 block text-sm font-medium"
-                        >
-                          Nhu cầu
-                        </label>
-                        <Select>
-                          <SelectTrigger
-                            id="needs"
-                            className="border-gray-300 focus:border-[#1a2c64] focus:ring-[#1a2c64]"
-                          >
-                            <SelectValue placeholder="Chọn nhu cầu" />
-                          </SelectTrigger>
-                          <SelectContent>
-                            <SelectItem value="buy">Mua căn hộ</SelectItem>
-                            <SelectItem value="invest">Đầu tư</SelectItem>
-                            <SelectItem value="visit">
-                              Tham quan căn hộ mẫu
-                            </SelectItem>
-                            <SelectItem value="other">Khác</SelectItem>
-                          </SelectContent>
-                        </Select>
-                      </div>
-                    </div>
-
-                    <div>
-                      <label
-                        htmlFor="message"
-                        className="mb-1 block text-sm font-medium"
-                      >
-                        Nội dung yêu cầu
-                      </label>
-                      <Textarea
-                        id="message"
-                        className="min-h-32 border-gray-300 focus:border-[#1a2c64] focus:ring-[#1a2c64]"
-                        placeholder="Nhập nội dung yêu cầu của bạn..."
+                  <Form {...form}>
+                    <form
+                      onSubmit={form.handleSubmit(onSubmit)}
+                      className="space-y-4"
+                    >
+                      <FormField
+                        control={form.control}
+                        name="name"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel>Họ và tên</FormLabel>
+                            <Input
+                              placeholder="Nhập họ và tên của bạn"
+                              {...field}
+                            />
+                            <FormMessage />
+                          </FormItem>
+                        )}
                       />
-                    </div>
 
-                    <div className="pt-2">
-                      <Button
-                        type="submit"
-                        className="w-full bg-[#1a2c64] text-[#f0d989] hover:bg-[#273c7a] sm:w-auto"
-                      >
-                        Gửi yêu cầu
-                      </Button>
-                    </div>
-                  </form>
+                      <FormField
+                        control={form.control}
+                        name="email"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel>Email</FormLabel>
+                            <FormControl>
+                              <Input
+                                type="email"
+                                placeholder="example@email.com"
+                                {...field}
+                              />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+
+                      <FormField
+                        control={form.control}
+                        name="phone"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel>Số điện thoại</FormLabel>
+                            <FormControl>
+                              <Input placeholder="0912 345 678" {...field} />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+
+                      <FormField
+                        control={form.control}
+                        name="message"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel>Nội dung yêu cầu</FormLabel>
+                            <FormControl>
+                              <Textarea
+                                className="min-h-24 resize-none"
+                                placeholder="Nhập nội dung yêu cầu tư vấn của bạn..."
+                                {...field}
+                              />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+
+                      <div className="pt-2">
+                        <Button
+                          type="submit"
+                          className="w-full bg-[#1a2c64] text-[#f0d989] hover:bg-[#273c7a] sm:w-auto"
+                        >
+                          <Send className="mr-2 size-4" />
+                          Gửi yêu cầu
+                        </Button>
+                      </div>
+                    </form>
+                  </Form>
                 </CardContent>
               </div>
             </div>
@@ -306,16 +355,30 @@ const Page = () => {
           <div className="grid grid-cols-1 items-center gap-8 md:grid-cols-2">
             <Dialog>
               <DialogTrigger asChild>
-                <div className="group relative h-[300px] cursor-pointer overflow-hidden rounded-xl shadow-lg transition-all duration-300 hover:border-[#f0d989]/40 md:h-[400px]">
-                  <Image
-                    src="/images/common/showroom.jpg"
-                    alt="Nhà mẫu Economy City"
-                    fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
+                <div className="group cursor-pointer overflow-hidden rounded-xl shadow-lg transition-all duration-300 hover:shadow-xl">
+                  <div className="relative h-[300px] overflow-hidden md:h-[400px]">
+                    <Image
+                      src="/images/common/showroom.jpg"
+                      alt="Nhà mẫu Economy City"
+                      fill
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
+                    <div className="absolute inset-x-0 bottom-0 p-4 text-white opacity-0 transition-all duration-300 group-hover:bottom-4 group-hover:opacity-100">
+                      <p className="text-center font-medium">
+                        Nhấp để xem ảnh lớn
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </DialogTrigger>
               <DialogContent className="max-w-5xl border-none bg-transparent p-0 shadow-none">
+                <VisuallyHidden>
+                  <DialogTitle>Preview Nhà mẫu Economy City</DialogTitle>
+                  <DialogDescription>
+                    Hình ảnh nhà mẫu Economy City phóng to
+                  </DialogDescription>
+                </VisuallyHidden>
                 <Image
                   src="/images/common/showroom.jpg"
                   alt="Preview Nhà mẫu Economy City"
