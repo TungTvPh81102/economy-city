@@ -24,6 +24,9 @@ export const metadata: Metadata = {
     'shophouse',
     'TP. Hà Nội',
   ],
+  icons: {
+    icon: '/logo.jpg',
+  },
   openGraph: {
     title: 'ECONOMY CITY - Căn hộ cao cấp xanh giữa lòng thành phố',
     description:
