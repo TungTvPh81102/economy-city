@@ -1,20 +1,8 @@
 import React from 'react'
 import { floorplanMetadata } from '@/lib/metadata'
 import Image from 'next/image'
-import {
-  Bath,
-  Bed,
-  Building,
-  Check,
-  CheckCircle2,
-  Download,
-  Home,
-  Square,
-  Store,
-} from 'lucide-react'
+import { Building, CheckCircle2, Download, Home, Store } from 'lucide-react'
 import { Button } from '@/components/ui/button'
-import Link from 'next/link'
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 
 export const metadata = floorplanMetadata
 

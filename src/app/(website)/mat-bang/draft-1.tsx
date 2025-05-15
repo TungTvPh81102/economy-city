@@ -42,15 +42,15 @@ const PropertyCard = ({
 
         <div className="mb-4 flex items-center justify-between">
           <div className="flex items-center text-gray-600">
-            <Square className="mr-1 h-4 w-4" />
+            <Square className="mr-1 size-4" />
             <span className="text-sm">{area}</span>
           </div>
           <div className="flex items-center text-gray-600">
-            <Bed className="mr-1 h-4 w-4" />
+            <Bed className="mr-1 size-4" />
             <span className="text-sm">{bedrooms} PN</span>
           </div>
           <div className="flex items-center text-gray-600">
-            <Bath className="mr-1 h-4 w-4" />
+            <Bath className="mr-1 size-4" />
             <span className="text-sm">{bathrooms} WC</span>
           </div>
         </div>
@@ -109,8 +109,8 @@ export default function FloorPlanPage() {
 
           <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-3">
             <div className="rounded-xl border border-[#e9c976]/30 bg-white p-6 shadow-md transition-shadow hover:shadow-lg">
-              <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-[#1a2f6e]/10">
-                <Home className="h-7 w-7 text-[#1a2f6e]" />
+              <div className="mb-4 flex size-14 items-center justify-center rounded-full bg-[#1a2f6e]/10">
+                <Home className="size-7 text-[#1a2f6e]" />
               </div>
               <h3 className="mb-3 text-xl font-semibold text-[#1a2f6e]">
                 Khu biệt thự
@@ -121,15 +121,15 @@ export default function FloorPlanPage() {
               </p>
               <ul className="mb-6 space-y-2">
                 <li className="flex items-start">
-                  <Check className="mr-2 mt-1 h-5 w-5 text-[#e9c976]" />
+                  <Check className="mr-2 mt-1 size-5 text-[#e9c976]" />
                   <span className="text-gray-600">Biệt thự đơn lập</span>
                 </li>
                 <li className="flex items-start">
-                  <Check className="mr-2 mt-1 h-5 w-5 text-[#e9c976]" />
+                  <Check className="mr-2 mt-1 size-5 text-[#e9c976]" />
                   <span className="text-gray-600">Biệt thự song lập</span>
                 </li>
                 <li className="flex items-start">
-                  <Check className="mr-2 mt-1 h-5 w-5 text-[#e9c976]" />
+                  <Check className="mr-2 mt-1 size-5 text-[#e9c976]" />
                   <span className="text-gray-600">Biệt thự liền kề</span>
                 </li>
               </ul>
@@ -143,8 +143,8 @@ export default function FloorPlanPage() {
             </div>
 
             <div className="rounded-xl border border-[#e9c976]/30 bg-white p-6 shadow-md transition-shadow hover:shadow-lg">
-              <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-[#1a2f6e]/10">
-                <Building className="h-7 w-7 text-[#1a2f6e]" />
+              <div className="mb-4 flex size-14 items-center justify-center rounded-full bg-[#1a2f6e]/10">
+                <Building className="size-7 text-[#1a2f6e]" />
               </div>
               <h3 className="mb-3 text-xl font-semibold text-[#1a2f6e]">
                 Khu nhà phố
@@ -155,15 +155,15 @@ export default function FloorPlanPage() {
               </p>
               <ul className="mb-6 space-y-2">
                 <li className="flex items-start">
-                  <Check className="mr-2 mt-1 h-5 w-5 text-[#e9c976]" />
+                  <Check className="mr-2 mt-1 size-5 text-[#e9c976]" />
                   <span className="text-gray-600">Nhà phố liền kề</span>
                 </li>
                 <li className="flex items-start">
-                  <Check className="mr-2 mt-1 h-5 w-5 text-[#e9c976]" />
+                  <Check className="mr-2 mt-1 size-5 text-[#e9c976]" />
                   <span className="text-gray-600">Nhà phố vườn</span>
                 </li>
                 <li className="flex items-start">
-                  <Check className="mr-2 mt-1 h-5 w-5 text-[#e9c976]" />
+                  <Check className="mr-2 mt-1 size-5 text-[#e9c976]" />
                   <span className="text-gray-600">Nhà phố duplex</span>
                 </li>
               </ul>
@@ -177,8 +177,8 @@ export default function FloorPlanPage() {
             </div>
 
             <div className="rounded-xl border border-[#e9c976]/30 bg-white p-6 shadow-md transition-shadow hover:shadow-lg">
-              <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-[#1a2f6e]/10">
-                <Store className="h-7 w-7 text-[#1a2f6e]" />
+              <div className="mb-4 flex size-14 items-center justify-center rounded-full bg-[#1a2f6e]/10">
+                <Store className="size-7 text-[#1a2f6e]" />
               </div>
               <h3 className="mb-3 text-xl font-semibold text-[#1a2f6e]">
                 Khu thương mại
@@ -189,15 +189,15 @@ export default function FloorPlanPage() {
               </p>
               <ul className="mb-6 space-y-2">
                 <li className="flex items-start">
-                  <Check className="mr-2 mt-1 h-5 w-5 text-[#e9c976]" />
+                  <Check className="mr-2 mt-1 size-5 text-[#e9c976]" />
                   <span className="text-gray-600">Shophouse</span>
                 </li>
                 <li className="flex items-start">
-                  <Check className="mr-2 mt-1 h-5 w-5 text-[#e9c976]" />
+                  <Check className="mr-2 mt-1 size-5 text-[#e9c976]" />
                   <span className="text-gray-600">Trung tâm thương mại</span>
                 </li>
                 <li className="flex items-start">
-                  <Check className="mr-2 mt-1 h-5 w-5 text-[#e9c976]" />
+                  <Check className="mr-2 mt-1 size-5 text-[#e9c976]" />
                   <span className="text-gray-600">Khu ẩm thực</span>
                 </li>
               </ul>
@@ -312,7 +312,7 @@ export default function FloorPlanPage() {
                     </p>
                     <div className="mb-6 space-y-3">
                       <div className="flex items-start">
-                        <Check className="mr-3 mt-1 h-5 w-5 text-[#e9c976]" />
+                        <Check className="mr-3 mt-1 size-5 text-[#e9c976]" />
                         <div>
                           <span className="font-semibold text-[#1a2f6e]">
                             Diện tích đất:
@@ -323,7 +323,7 @@ export default function FloorPlanPage() {
                         </div>
                       </div>
                       <div className="flex items-start">
-                        <Check className="mr-3 mt-1 h-5 w-5 text-[#e9c976]" />
+                        <Check className="mr-3 mt-1 size-5 text-[#e9c976]" />
                         <div>
                           <span className="font-semibold text-[#1a2f6e]">
                             Diện tích xây dựng:
@@ -334,7 +334,7 @@ export default function FloorPlanPage() {
                         </div>
                       </div>
                       <div className="flex items-start">
-                        <Check className="mr-3 mt-1 h-5 w-5 text-[#e9c976]" />
+                        <Check className="mr-3 mt-1 size-5 text-[#e9c976]" />
                         <div>
                           <span className="font-semibold text-[#1a2f6e]">
                             Số tầng:
@@ -345,7 +345,7 @@ export default function FloorPlanPage() {
                         </div>
                       </div>
                       <div className="flex items-start">
-                        <Check className="mr-3 mt-1 h-5 w-5 text-[#e9c976]" />
+                        <Check className="mr-3 mt-1 size-5 text-[#e9c976]" />
                         <div>
                           <span className="font-semibold text-[#1a2f6e]">
                             Số phòng ngủ:
@@ -356,7 +356,7 @@ export default function FloorPlanPage() {
                         </div>
                       </div>
                       <div className="flex items-start">
-                        <Check className="mr-3 mt-1 h-5 w-5 text-[#e9c976]" />
+                        <Check className="mr-3 mt-1 size-5 text-[#e9c976]" />
                         <div>
                           <span className="font-semibold text-[#1a2f6e]">
                             Số phòng tắm:
@@ -431,7 +431,7 @@ export default function FloorPlanPage() {
                     </p>
                     <div className="mb-6 space-y-3">
                       <div className="flex items-start">
-                        <Check className="mr-3 mt-1 h-5 w-5 text-[#e9c976]" />
+                        <Check className="mr-3 mt-1 size-5 text-[#e9c976]" />
                         <div>
                           <span className="font-semibold text-[#1a2f6e]">
                             Diện tích đất:
@@ -442,7 +442,7 @@ export default function FloorPlanPage() {
                         </div>
                       </div>
                       <div className="flex items-start">
-                        <Check className="mr-3 mt-1 h-5 w-5 text-[#e9c976]" />
+                        <Check className="mr-3 mt-1 size-5 text-[#e9c976]" />
                         <div>
                           <span className="font-semibold text-[#1a2f6e]">
                             Diện tích xây dựng:
@@ -451,7 +451,7 @@ export default function FloorPlanPage() {
                         </div>
                       </div>
                       <div className="flex items-start">
-                        <Check className="mr-3 mt-1 h-5 w-5 text-[#e9c976]" />
+                        <Check className="mr-3 mt-1 size-5 text-[#e9c976]" />
                         <div>
                           <span className="font-semibold text-[#1a2f6e]">
                             Số tầng:
@@ -462,7 +462,7 @@ export default function FloorPlanPage() {
                         </div>
                       </div>
                       <div className="flex items-start">
-                        <Check className="mr-3 mt-1 h-5 w-5 text-[#e9c976]" />
+                        <Check className="mr-3 mt-1 size-5 text-[#e9c976]" />
                         <div>
                           <span className="font-semibold text-[#1a2f6e]">
                             Số phòng ngủ:
@@ -471,7 +471,7 @@ export default function FloorPlanPage() {
                         </div>
                       </div>
                       <div className="flex items-start">
-                        <Check className="mr-3 mt-1 h-5 w-5 text-[#e9c976]" />
+                        <Check className="mr-3 mt-1 size-5 text-[#e9c976]" />
                         <div>
                           <span className="font-semibold text-[#1a2f6e]">
                             Số phòng tắm:
@@ -544,7 +544,7 @@ export default function FloorPlanPage() {
                     </p>
                     <div className="mb-6 space-y-3">
                       <div className="flex items-start">
-                        <Check className="mr-3 mt-1 h-5 w-5 text-[#e9c976]" />
+                        <Check className="mr-3 mt-1 size-5 text-[#e9c976]" />
                         <div>
                           <span className="font-semibold text-[#1a2f6e]">
                             Diện tích đất:
@@ -555,7 +555,7 @@ export default function FloorPlanPage() {
                         </div>
                       </div>
                       <div className="flex items-start">
-                        <Check className="mr-3 mt-1 h-5 w-5 text-[#e9c976]" />
+                        <Check className="mr-3 mt-1 size-5 text-[#e9c976]" />
                         <div>
                           <span className="font-semibold text-[#1a2f6e]">
                             Diện tích xây dựng:
@@ -566,7 +566,7 @@ export default function FloorPlanPage() {
                         </div>
                       </div>
                       <div className="flex items-start">
-                        <Check className="mr-3 mt-1 h-5 w-5 text-[#e9c976]" />
+                        <Check className="mr-3 mt-1 size-5 text-[#e9c976]" />
                         <div>
                           <span className="font-semibold text-[#1a2f6e]">
                             Số tầng:
@@ -575,7 +575,7 @@ export default function FloorPlanPage() {
                         </div>
                       </div>
                       <div className="flex items-start">
-                        <Check className="mr-3 mt-1 h-5 w-5 text-[#e9c976]" />
+                        <Check className="mr-3 mt-1 size-5 text-[#e9c976]" />
                         <div>
                           <span className="font-semibold text-[#1a2f6e]">
                             Mặt tiền:
@@ -610,7 +610,7 @@ export default function FloorPlanPage() {
 
               <div className="mb-8 rounded-xl border border-[#e9c976]/20 bg-[#1a2f6e]/5 p-6">
                 <div className="mb-4 flex items-center">
-                  <ArrowRight className="mr-3 h-6 w-6 text-[#e9c976]" />
+                  <ArrowRight className="mr-3 size-6 text-[#e9c976]" />
                   <h3 className="text-xl font-semibold text-[#1a2f6e]">
                     Ưu đãi đặc biệt
                   </h3>
@@ -621,15 +621,15 @@ export default function FloorPlanPage() {
                 </p>
                 <ul className="space-y-3">
                   <li className="flex items-start">
-                    <Check className="mr-2 mt-1 h-5 w-5 text-[#e9c976]" />
+                    <Check className="mr-2 mt-1 size-5 text-[#e9c976]" />
                     <span className="text-gray-600">Ưu tiên chọn căn đẹp</span>
                   </li>
                   <li className="flex items-start">
-                    <Check className="mr-2 mt-1 h-5 w-5 text-[#e9c976]" />
+                    <Check className="mr-2 mt-1 size-5 text-[#e9c976]" />
                     <span className="text-gray-600">Chiết khấu đặc biệt</span>
                   </li>
                   <li className="flex items-start">
-                    <Check className="mr-2 mt-1 h-5 w-5 text-[#e9c976]" />
+                    <Check className="mr-2 mt-1 size-5 text-[#e9c976]" />
                     <span className="text-gray-600">Quà tặng giá trị</span>
                   </li>
                 </ul>

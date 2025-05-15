@@ -353,7 +353,7 @@ const Page = () => {
                 </div>
                 <div className="flex items-start">
                   <div className="mr-3 flex size-10 items-center justify-center rounded-full bg-[#1a2c64]/10">
-                    <Clock className="h-5 w-5 text-[#1a2c64]" />
+                    <Clock className="size-5 text-[#1a2c64]" />
                   </div>
                   <div>
                     <h4 className="font-semibold text-[#1a2c64]">Giờ mở cửa</h4>
@@ -362,7 +362,7 @@ const Page = () => {
                 </div>
                 <div className="flex items-start">
                   <div className="mr-3 flex size-10 items-center justify-center rounded-full bg-[#1a2c64]/10">
-                    <Phone className="h-5 w-5 text-[#1a2c64]" />
+                    <Phone className="size-5 text-[#1a2c64]" />
                   </div>
                   <div>
                     <h4 className="font-semibold text-[#1a2c64]">
